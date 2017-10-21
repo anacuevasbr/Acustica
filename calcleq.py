@@ -31,15 +31,14 @@ if __name__ == "__main__":
     with open(sys.argv[1], newline='') as f:
         Fich = csv.reader(f)
         for Linea in Fich:
-            Muestras = Linea[0]
             Total = 0
-            Operandos = Linea[1:]
-            for Operando in Operandos:
+            print(len(Linea))
+            for Operando in Linea:
                 Operar = Calcdb(float(Operando))
                 Valor = Operar.a_lineal()
 
                 Total= Total + Valor
-            Operar = calcoo.Calculadora(float(Total),float(Muestras))
+            Operar = calcoo.Calculadora(float(Total),float(len(Linea)))
 
             Total = Operar.divide()
             Operar = Calcdb(float(Total))
